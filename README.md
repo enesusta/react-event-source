@@ -33,6 +33,24 @@ by using `yarn`:
 $ yarn add react-event-stream rxjs
 ```
 
+## Usage
+
+```jsx
+import React from 'react'
+import useEventStream from 'react-event-stream';
+
+const Example = () => {
+    const value = useEventStream('http://localhost:8080/sse', 1000);
+
+    return (
+        <>
+            {JSON.stringify(value)};
+        </>
+    );
+};
+
+export default Example;
+```
 
 ## Made with
 
