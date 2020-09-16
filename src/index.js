@@ -1,2 +1,2 @@
-import useEventSource from "./useEventSource";
-export default useEventSource;
+import useEventStream from "./useEventStream";
+export default useEventStream;

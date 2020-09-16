@@ -1,8 +1,8 @@
-import {useEffect, useState} from 'react';
-import {debounceTime, distinctUntilChanged} from "rxjs/operators";
-import {Subject} from "rxjs";
+import { useEffect, useState } from 'react';
+import { debounceTime, distinctUntilChanged } from "rxjs/operators";
+import { Subject } from "rxjs";
 
-export default function useEventSource(url, delay = 500) {
+export default function useEventStream(url, delay = 500) {
   const [value, setValue] = useState([]);
   const [onSSR$] = useState(() => new Subject());
 
