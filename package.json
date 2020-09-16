@@ -1,14 +1,14 @@
 {
-  "name": "react-event-source",
+  "name": "react-event-stream",
   "version": "1.0.0",
-  "description": "react-event-source is custom react hooks library.",
+  "description": "react-event-stream is custom react hooks library.",
   "author": "enesusta",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/enesusta/react-event-source"
+    "url": "https://github.com/enesusta/react-event-stream"
   },
-  "homepage": "https://github.com/enesusta/react-event-source#readme",
+  "homepage": "https://github.com/enesusta/react-event-stream#readme",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
