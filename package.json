@@ -26,21 +26,14 @@
     "predeploy": "cd example && yarn install && yarn run build"
   },
   "peerDependencies": {
-    "react": "^16.9.0",
-    "rxjs": "6.6.0"
+    "react": "^16.8.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^15.0.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "@testing-library/react-hooks": "^3.4.1",
-    "@types/jest": "^26.0.13",
-    "@types/react": "^16.9.49",
     "react": "^16.9.0",
-    "react-scripts": "^3.4.3",
-    "react-test-renderer": "^16.13.1",
-    "rollup": "^2.27.0",
-    "rollup-plugin-peer-deps-external": "^2.2.3",
+    "rollup": "2.68.0",
     "rollup-plugin-terser": "^7.0.2",
-    "rxjs": "^6.6.3"
+    "rollup-plugin-typescript2": "^0.32.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
   }
 }

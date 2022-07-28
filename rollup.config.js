@@ -1,23 +1,19 @@
-import external from 'rollup-plugin-peer-deps-external'
-import nodeResolve from '@rollup/plugin-node-resolve'
-import {terser} from "rollup-plugin-terser";
-import commonjs from "@rollup/plugin-commonjs";
-
-import pkg from './package.json'
+import { terser } from "rollup-plugin-terser";
+import typescript from "rollup-plugin-typescript2";
 
 export default {
-  input: 'src/index.js',
-  output:
-    {
-      file: pkg.module,
-      format: 'es',
-    },
+  input: "src/index.ts",
+  output: {
+    dir: "dist",
+    format: "es",
+  },
   plugins: [
-    external(),
-    nodeResolve({jsnext: true, preferBuiltins: true, browser: true}),
-    commonjs(),
-    terser()
+    typescript({
+      rollupCommonJSResolveHack: true,
+      clean: true,
+      declaration: true,
+    }),
+    terser(),
   ],
-  external: ['rxjs', 'rxjs/operators']
-}
-
+  external: ["react"],
+};
