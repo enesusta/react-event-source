@@ -13,7 +13,7 @@ const useEventStream = (url: string): any[] => {
     };
 
     eventSource.onerror = (err) => {
-      console.error(`Event source has failed for reason: ${err}`);
+      console.error(`Event source has failed for reason: ${JSON.stringify(err)}`);
       eventSource.close();
     };
 

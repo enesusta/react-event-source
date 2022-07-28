@@ -1,6 +1,6 @@
 {
   "name": "react-event-stream",
-  "version": "1.0.2",
+  "version": "1.0.4-rc",
   "description": "react-event-stream is custom react hooks library.",
   "author": "enesusta",
   "license": "MIT",
@@ -26,10 +26,11 @@
     "predeploy": "cd example && yarn install && yarn run build"
   },
   "peerDependencies": {
-    "react": "^16.8.0"
+    "react": "^17.0.0"
   },
   "devDependencies": {
-    "react": "^16.9.0",
+    "@types/react": "^18.0.15",
+    "react": "^17.0.0",
     "rollup": "2.68.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.32.1",
