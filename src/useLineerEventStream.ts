@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const useEventStream = (url: string): any => {
-  const [value, setValue] = useState();
+const useLineerEventStream = (url: string): any[] => {
+  const [value, setValue] = useState([]);
 
   useEffect(() => {
     const eventSource = new EventSource(url);
@@ -9,7 +9,7 @@ const useEventStream = (url: string): any => {
     eventSource.onmessage = (event) => {
       const obj = JSON.parse(event.data);
       //@ts-ignore
-      setValue(obj);
+      setValue((oldArr) => [...oldArr, obj]);
     };
 
     eventSource.onerror = (err) => {
@@ -27,4 +27,4 @@ const useEventStream = (url: string): any => {
   return value;
 };
 
-export default useEventStream;
+export default useLineerEventStream;
