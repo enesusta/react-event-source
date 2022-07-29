@@ -1,30 +1,57 @@
 import { useEffect, useState } from "react";
-//@ts-ignore
-import SSE from "./sse.js";
 
-interface StreamOptions {
-  method: string;
-  headers: any;
-  payload: any;
-}
-
-const useEventStream = (url: string, options: StreamOptions): any[] => {
+const useEventStream = (url: string): any[] => {
   const [value, setValue] = useState([]);
 
   useEffect(() => {
-    const source = new SSE(url, options);
-    source.onstatus = (e: any) => {
-      const { data } = e;
+    const eventSource = new EventSource(url);
+
+    eventSource.onmessage = (event) => {
+      const obj = JSON.parse(event.data);
       //@ts-ignore
-      setValue((oldArr) => [...oldArr, JSON.parse(data)]);
+      setValue(obj);
     };
 
-    source.onerror = (e: any) => {
-      console.error(`Event source has failed for reason: ${JSON.stringify(e)}`);
+    eventSource.onerror = (err) => {
+      console.error(
+        `Event source has failed for reason: ${JSON.stringify(err)}`
+      );
+      eventSource.close();
+    };
+
+    return () => {
+      eventSource.close();
     };
   }, []);
 
   return value;
 };
 
-export default useEventStream;
+const useLineerEventStream = (url: string): any[] => {
+  const [value, setValue] = useState([]);
+
+  useEffect(() => {
+    const eventSource = new EventSource(url);
+
+    eventSource.onmessage = (event) => {
+      const obj = JSON.parse(event.data);
+      //@ts-ignore
+      setValue((oldArr) => [...oldArr, obj]);
+    };
+
+    eventSource.onerror = (err) => {
+      console.error(
+        `Event source has failed for reason: ${JSON.stringify(err)}`
+      );
+      eventSource.close();
+    };
+
+    return () => {
+      eventSource.close();
+    };
+  }, []);
+
+  return value;
+};
+
+export { useEventStream, useLineerEventStream };

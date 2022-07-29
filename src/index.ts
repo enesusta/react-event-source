@@ -1,2 +1,2 @@
-import useEventStream from "./useEventStream";
-export default useEventStream;
+import { useEventStream, useLineerEventStream } from "./useEventStream";
+export { useEventStream, useLineerEventStream };
